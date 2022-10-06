@@ -2,6 +2,8 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import SearchArray from 'search-array';
+import Link from 'next/link';
+import axios from 'axios';
 
 export default function Home({fetchedPoke}) {
   console.log(typeof(fetchedPoke))
@@ -25,7 +27,11 @@ export default function Home({fetchedPoke}) {
 
         {search.results.map((pokes,i) => (
            <p>
+            <Link href={`/pokemon/${pokes.name}`}>
+              <a>
             {i+1} {pokes.name}
+            </a>
+            </Link>
            </p>
            // for list without numbers
             // <div key={i}>
@@ -39,6 +45,7 @@ export default function Home({fetchedPoke}) {
     </div>
   )
 }
+
 
 export async function getStaticProps() {
   const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=905')
