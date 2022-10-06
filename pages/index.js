@@ -1,14 +1,19 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
-
+import SearchArray from 'search-array';
 
 export default function Home({fetchedPoke}) {
-  console.log(fetchedPoke)
-  const [pokemon, setPokemon] = useState(fetchedPoke)
+  console.log(typeof(fetchedPoke))
+  
+  const [pokemon, setPokemon] = useState(fetchedPoke);
+  const [value, setValue] = useState('bulbasaur');
+  const [search, setSearch] = useState(pokemon);
 
-  return (
-    
+  console.log(typeof(value))
+  console.log(typeof(search))
+  
+  return (  
     <div className="container">
       <Head>
         <title>Pokemon App</title>
@@ -16,13 +21,20 @@ export default function Home({fetchedPoke}) {
       </Head>
       <div>
         <h1>Pokemon App</h1>
-        {pokemon.results.map((pokes,i) => (
-           
-            <div key={i}>
-              {pokes.name}
-            </div>
+
+
+        {search.results.map((pokes,i) => (
+           <p>
+            {i+1} {pokes.name}
+           </p>
+           // for list without numbers
+            // <div key={i}>
+            //   {pokes.name}
+            // </div> 
+
           
         ))}
+
     </div>
     </div>
   )
