@@ -11,7 +11,8 @@ import { PokeList } from '../components/pokeliststyle';
 
 export default function Home({fetchedPoke}) {
   //const [pokemon, setPokemon] = useState(fetchedPoke);
-
+  console.log(fetchedPoke);
+  let offset = '200';
   
   return (  
     <Wrapper>
@@ -46,7 +47,7 @@ export default function Home({fetchedPoke}) {
 
 
 export async function getStaticProps() {
-  const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=905')
+  const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=905&offset=0');
   const fetchedPoke = await response.json()
   return {
     props:

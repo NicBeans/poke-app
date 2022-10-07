@@ -6,5 +6,6 @@ export const Image = styled.img`
   margin-left: auto;
   margin-right: auto;
   display: block;
+  border:  2.5px solid gold;
 `;
 

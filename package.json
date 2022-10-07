@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "axios": "^1.0.0",
+    "handlebars": "^4.7.7",
     "js-search-array": "^1.0.1",
     "next": "12.3.1",
+    "paginationjs": "^2.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "search-array": "^1.6.0",
