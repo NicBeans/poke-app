@@ -1,4 +1,9 @@
 import { useRouter } from 'next/router';
+import { Title } from '../../components/titlestyle';
+import { Wrapper } from '../../components/backgroundstyle';
+import { PokeList } from '../../components/pokeliststyle';
+import { Image } from '../../components/pokeimage';
+import { CenterDiv } from '../../components/centercontainer';
 
 export default function Pokemon({ pokemon }) {
   const router = useRouter();
@@ -6,14 +11,20 @@ export default function Pokemon({ pokemon }) {
     return 'The fallback page says: Loading...';
   }
 
+  
+
   return (
-    <>
-      <h1>{pokemon.name}</h1>
-      <img
-        src={pokemon.sprites.other.dream_world.front_default}
+    <Wrapper>
+      <Title>{pokemon.name}</Title>
+      <Image
+        src={pokemon.sprites.front_default}
         alt={pokemon.name}
       />
-    </>
+        <Image
+        src={pokemon.sprites.back_default}
+        alt={pokemon.name}
+      />
+    </Wrapper>
   );
 }
 

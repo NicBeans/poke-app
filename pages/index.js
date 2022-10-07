@@ -4,35 +4,33 @@ import { useState, useEffect } from 'react';
 import SearchArray from 'search-array';
 import Link from 'next/link';
 import axios from 'axios';
+import { Title } from '../components/titlestyle';
+import { Wrapper } from '../components/backgroundstyle';
+import { PokeList } from '../components/pokeliststyle';
+
 
 export default function Home({fetchedPoke}) {
-  console.log(typeof(fetchedPoke))
-  
-  const [pokemon, setPokemon] = useState(fetchedPoke);
-  const [value, setValue] = useState('bulbasaur');
-  const [search, setSearch] = useState(pokemon);
+  //const [pokemon, setPokemon] = useState(fetchedPoke);
 
-  console.log(typeof(value))
-  console.log(typeof(search))
   
   return (  
-    <div className="container">
+    <Wrapper>
       <Head>
         <title>Pokemon App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h1>Pokemon App</h1>
+        <Title>Pokemon App</Title>
 
 
-        {search.results.map((pokes,i) => (
-           <p>
+        {fetchedPoke.results.map((pokes,i) => (
+           <PokeList>
             <Link href={`/pokemon/${pokes.name}`}>
               <a>
             {i+1} {pokes.name}
             </a>
             </Link>
-           </p>
+           </PokeList>
            // for list without numbers
             // <div key={i}>
             //   {pokes.name}
@@ -42,7 +40,7 @@ export default function Home({fetchedPoke}) {
         ))}
 
     </div>
-    </div>
+    </Wrapper>
   )
 }
 
