@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Image = styled.img`
-  width: 400px;
-  height: 400px;
+  width: 60%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   display: block;

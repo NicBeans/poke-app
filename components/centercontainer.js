@@ -5,6 +5,6 @@ export const CenterDivRow = styled.div`
   `;
 
 export const CenterDivCol = styled.div`
-  flex: 50%;
+  flex: 100%;
   padding: 1px;
   `;
