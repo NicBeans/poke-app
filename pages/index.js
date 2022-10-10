@@ -25,7 +25,7 @@ export default function Home({fetchedPoke}) {
 
 
         {fetchedPoke.results.map((pokes,i) => (
-           <PokeList>
+           <PokeList key={pokes.name}>
             <Link href={`/pokemon/${pokes.name}`}>
               <a>
             {i+1} {pokes.name}

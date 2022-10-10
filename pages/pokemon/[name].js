@@ -49,7 +49,7 @@ console.log(pokemon.abilities.ability)
         <Title>{pokemon.name} abilities</Title>
         
         {pokemon.abilities.map((moves,i) => (
-        <PokeList>  
+        <PokeList key={pokemon.abilities[i].ability.name}>  
             <a>
             Move {i+1} : {pokemon.abilities[i].ability.name}
             </a>
