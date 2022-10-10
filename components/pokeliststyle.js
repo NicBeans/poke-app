@@ -6,8 +6,8 @@ export const PokeList = styled.p`
   text-align: center;
   color: yellow;
   text-shadow:
-   -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
+   -0.3px -0.3px 0 #000,  
+   0.3px -0.3px 0 #000,
+    -0.3px 0.3px 0 #000,
+    0.3px 0.3px 0 #000;
 `;
