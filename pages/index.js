@@ -7,12 +7,12 @@ import axios from 'axios';
 import { Title, MainTitle } from '../components/titlestyle';
 import { Wrapper } from '../components/backgroundstyle';
 import { PokeList } from '../components/pokeliststyle';
+import { ListImage } from '../components/pokeimage';
 
 
 export default function Home({fetchedPoke}) {
   //const [pokemon, setPokemon] = useState(fetchedPoke);
-  console.log(fetchedPoke);
-  let offset = '200';
+  
   
   return (  
     <Wrapper>
@@ -30,6 +30,10 @@ export default function Home({fetchedPoke}) {
               <a>
             {i+1} {pokes.name}
             </a>
+            {/* <ListImage
+              src={pokes.sprites.front_default}
+              alt={pokes.name}
+            /> */}
             </Link>
            </PokeList>
            // for list without numbers

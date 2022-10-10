@@ -15,7 +15,7 @@ export const Title = styled.h1`
 export const SubTitle = styled.h2`
   font-size: 1em;
   text-align: center;
-  color: yellow;
+  color: gold;
   text-shadow:
    -0.5px -0.5px 0 #000,  
     0.5px -0.5px 0 #000,
@@ -23,13 +23,6 @@ export const SubTitle = styled.h2`
      0.5px 0.5px 0 #000;
 `;
 
-export const TitleImage = styled.img`
-  width: 400px;
-  height: 400px;
-  border:  2.5px solid gold;
-  position: fixed;
-  top: 10;
-`;
 
 export const MainTitle = styled.h1`
   font-size: 4em;
