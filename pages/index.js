@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import SearchArray from 'search-array';
 import Link from 'next/link';
 import axios from 'axios';
-import { Title } from '../components/titlestyle';
+import { Title, MainTitle } from '../components/titlestyle';
 import { Wrapper } from '../components/backgroundstyle';
 import { PokeList } from '../components/pokeliststyle';
 
@@ -21,7 +21,7 @@ export default function Home({fetchedPoke}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Title>Pokemon App</Title>
+        <MainTitle>Pokemon App</MainTitle>
 
 
         {fetchedPoke.results.map((pokes,i) => (
