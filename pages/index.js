@@ -8,12 +8,59 @@ import { Title, MainTitle } from '../components/titlestyle';
 import { Wrapper } from '../components/backgroundstyle';
 import { PokeList } from '../components/pokeliststyle';
 import { ListImage } from '../components/pokeimage';
-
+import { StyledButton } from '../components/buttonstyle';
 
 export default function Home({fetchedPoke}) {
-  //const [pokemon, setPokemon] = useState(fetchedPoke);
+  const [pokemon, setPokemon] = useState(fetchedPoke);
+  const [isLoading, setIsLoading] = useState(false);
+  const [err, setErr] = useState('');
+
+  console.log(pokemon.next)
+
+  const handleClickNext = async() =>  {
+      setIsLoading(true);
   
+      try {
+        const response = await fetch(pokemon.next);
   
+        if (!response.ok) {
+          throw new Error(`Error! status: ${response.status}`);
+        }
+  
+        const result = await response.json();
+  
+        setPokemon(result);
+
+    } catch (err) {
+      setErr(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleClickPrevious = async() =>  {
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(pokemon.previous);
+
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      setPokemon(result);
+
+  } catch (err) {
+    setErr(err.message);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+  
+
   return (  
     <Wrapper>
       <Head>
@@ -22,41 +69,41 @@ export default function Home({fetchedPoke}) {
       </Head>
       <div>
         <MainTitle>Pokemon App</MainTitle>
+        <StyledButton onClick={handleClickNext}>next</StyledButton>
+        <StyledButton onClick={handleClickPrevious}>previous</StyledButton>
 
-
-        {fetchedPoke.results.map((pokes,i) => (
+        {pokemon.results.map((pokes,i) => (
            <PokeList key={pokes.name}>
             <Link href={`/pokemon/${pokes.name}`}>
               <a>
             {i+1} {pokes.name}
-            </a>
-            {/* <ListImage
-              src={pokes.sprites.front_default}
-              alt={pokes.name}
-            /> */}
+            </a> 
             </Link>
            </PokeList>
-           // for list without numbers
-            // <div key={i}>
-            //   {pokes.name}
-            // </div> 
-
-          
+           
         ))}
-
-    </div>
+      </div>
     </Wrapper>
   )
 }
 
 
 export async function getStaticProps() {
-  const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=905&offset=0');
-  const fetchedPoke = await response.json()
-  return {
-    props:
-    {
-      fetchedPoke
-    }
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  let fetchPageNum = 0;
+  const response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon?limit=20&offset=0/`
+  );
+  if (response.status === 404) {
+    return {
+      notFound: true,
+    };
   }
+
+  const fetchedPoke = await response.json();
+  return {
+    props: {
+      fetchedPoke,
+    },
+  };
 }
