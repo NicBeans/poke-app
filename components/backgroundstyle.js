@@ -3,7 +3,7 @@ import background from '../images/pokebackground.png';
 
 export const Wrapper = styled.section`
   background-image: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
-;
+  /* background-image: url('/images/pokebackground.png')  ; */
   padding: 4em;
   width: 100%;
 `;

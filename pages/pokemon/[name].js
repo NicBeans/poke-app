@@ -51,7 +51,7 @@ console.log(pokemon.abilities.ability)
         {pokemon.abilities.map((moves,i) => (
         <PokeList key={pokemon.abilities[i].ability.name}>  
             <a>
-            Move {i+1} : {pokemon.abilities[i].ability.name}
+            move {i+1} : {pokemon.abilities[i].ability.name}
             </a>
         </PokeList>
         ))}
