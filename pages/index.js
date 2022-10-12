@@ -5,10 +5,13 @@ import SearchArray from 'search-array';
 import Link from 'next/link';
 import axios from 'axios';
 import { Title, MainTitle } from '../components/titlestyle';
-import { Wrapper } from '../components/backgroundstyle';
+import { Wrapper, HeaderWrapper } from '../components/backgroundstyle';
 import { PokeList } from '../components/pokeliststyle';
 import { ListImage } from '../components/pokeimage';
 import { StyledButton } from '../components/buttonstyle';
+import { CenterDivRow, CenterDivCol, MainTitleSection, CenterDivColButton, CenterDivRowButton } from '../components/centercontainer';
+
+
 
 export default function Home({fetchedPoke}) {
   const [pokemon, setPokemon] = useState(fetchedPoke);
@@ -69,9 +72,6 @@ export default function Home({fetchedPoke}) {
       </Head>
       <div>
         <MainTitle>Pokemon App</MainTitle>
-        <StyledButton onClick={handleClickNext}>next</StyledButton>
-        <StyledButton onClick={handleClickPrevious}>previous</StyledButton>
-
         {pokemon.results.map((pokes,i) => (
            <PokeList key={pokes.name}>
             <Link href={`/pokemon/${pokes.name}`}>
@@ -82,6 +82,14 @@ export default function Home({fetchedPoke}) {
            </PokeList>
            
         ))}
+        <CenterDivRowButton>
+        <CenterDivColButton>
+        <StyledButton onClick={handleClickPrevious}>previous</StyledButton>
+        </CenterDivColButton>
+        <CenterDivColButton>
+        <StyledButton onClick={handleClickNext}>next</StyledButton>
+        </CenterDivColButton>
+        </CenterDivRowButton>
       </div>
     </Wrapper>
   )

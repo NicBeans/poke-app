@@ -33,6 +33,4 @@ export const MainTitle = styled.h1`
     1.5px -1.5px 0 #0075BE,
     -1.5px 1.5px 0 #0075BE,
      1.5px 1.5px 0 #0075BE;
-  position: fixed;
-  top: 0;
   `;

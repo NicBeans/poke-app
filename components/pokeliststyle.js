@@ -10,4 +10,6 @@ export const PokeList = styled.p`
    0.8px -0.8px 0 #000,
     -0.8px 0.8px 0 #000,
     0.8px 0.8px 0 #000;
+    position: relative;
+    
 `;
